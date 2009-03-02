@@ -1,3 +1,9 @@
+" ==========================================================
+" File Name:    .vimrc
+" Author:       pixelmuerto
+" Version:      0.1
+" Last Change:  2009-03-02 14:04:19
+" ==========================================================
 syntax on
 :set background=dark
 ":set backspace=eol,start,indent
