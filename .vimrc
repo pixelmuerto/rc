@@ -12,7 +12,7 @@ filetype plugin on
 filetype on
 
 ""taglist
-""TlistToggle
+"TlistToggle
 
 ""resaltar busqueda
 ":set hls
