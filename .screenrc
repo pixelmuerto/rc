@@ -1,0 +1,74 @@
+# The caption line has the following entries
+# username@host | uptime | time - date | screens
+## {yK} color de texto y amarillo ## {Kg} color de fondo g verde
+#caption always " | %-w%{= BW}%50>%n %t%{-}%+w |%<"
+caption splitonly  "%{Kk}[ %-w%{= Kk}%50>%n %t%{-}%+w ]%<"
+
+##insertar salida de comandos en la ultima linea
+#hardstatus alwayslastline  "%{Kc} $LOGNAME@%H %{Kg}| %l | %C %A - %M-%d-%Y | %{Km} %?[%1`]%?"
+#hardstatus string '%{wk}[ %h ] [ %t ] '
+
+#hardstatus alwayslastline "%-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%< %=%D %M %d %c"
+hardstatus alwayslastline
+hardstatus string '%{= kK}[ %h ] %-Lw%{= KW}%50>%n%f %t%{= kK}%+Lw%< %{=kG}%-= %d %M %c%{-}'
+
+
+### some basic stuff
+###
+#########################################################################
+activity "%"                    # tell me when stuff happens!           #
+crlf off                        # no thanks.                            #
+defmonitor on                   # turn monitoring on                    #
+defscrollback 1000              # please sir, can i have some more?     #
+shell -$SHELL                   # i'll take my default shell.           #
+startup_message off             # don't want this either.               #
+term $TERM                      # We'll use whatever is currently used  #
+vbell off
+hardstatus on
+
+#para q la funcion scroll funcione en screen
+termcapinfo xterm 'hs:ts=\E]2;:fs=\007:ds=\E]2;\w\007'
+termcapinfo xterm ti@:te@
+
+# terminfo and termcap for nice 256 color terminal
+# allow bold colors - necessary for some reason
+attrcolor b ".I"
+# tell screen how to set colors. AB = background, AF=foreground
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+# erase background with current bg color
+defbce "on"
+
+# Emulate .logout message
+#pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
+
+###
+# Let's do some bindings.
+###   ctrl-a LETRA
+#####################################################
+#bind I screen -t 'irc'   bitchx -H $IRCSERVER
+#bind M screen -t 'Email' mutt
+#bind e screen -t 'emacs' emacs21 -nw
+bind m screen -t 'moc' mocp
+bind v screen -t 'vim' vim
+bind i screen -t 'irssi' irssi
+bind - resize -1
+bind + resize +1
+#####################################################
+
+###
+### F11-F12 become Prev/Fwd
+###
+########################
+### yes, it's funky    #
+########################
+#bindkey -k kh select 0         # Home = screen 0
+#bindkey -k k1 select 0         # F1 = screen 0
+#bindkey -k k2 select 1         # F2 = screen 1
+#bindkey -k k3 select 2         # F3 = screen 2
+#bindkey -k k4 select 3         # F4 = screen 3
+#bindkey -k k5 select 4         # F5 = screen 4
+#bindkey -k k6 select 5         # F6 = screen 5
+#bindkey -k k7 select 6         # F7 = screen 6
+#bindkey -k k8 select 7         # F8 = screen 7
+bindkey -k F2 next              # F12 = next
+bindkey -k F1 prev              # F11 = previous
