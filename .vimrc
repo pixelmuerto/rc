@@ -29,19 +29,13 @@ set spelllang=es
 :set fdm=marker
 "Completar con tab{{{1
 function! CleverTab()
-	if pumvisible()
-    return "\<C-N>"
-  endif
-  if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
+  let col = col('.') - 1
+  if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$' || strpart( getline('.'),col-1,col) =~ '\s' || !col
     return "\<Tab>"
-  elseif exists('&omnifunc') && &omnifunc != ''
-    return "\<C-X>\<C-O>"
   else
     return "\<C-N>"
-  endif
 endfunction
 inoremap <Tab> <C-R>=CleverTab()<CR>
-
 "}}}1
 
 nmap ,v :tabnew ~/.vimrc<CR>
@@ -95,8 +89,6 @@ autocmd VimLeave * call SaveSession()
 "}}}1
 ""limpiar la terminal al salir de vim
 autocmd VimLeave * !clear
-
-autocmd FileType python set omnifunc=pythoncomplete#Complete
 
 """""redirigir salida de comando
 """manual 
