@@ -29,11 +29,16 @@ set spelllang=es
 :set fdm=marker
 "Completar con tab{{{1
 function! CleverTab()
-	let col = col('.') - 1
-  if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$' || strpart( getline('.'),col-1,col) =~ '\s' || !col
+	if pumvisible()
+    return "\<C-N>"
+  endif
+  if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
     return "\<Tab>"
+  elseif exists('&omnifunc') && &omnifunc != ''
+    return "\<C-X>\<C-O>"
   else
     return "\<C-N>"
+  endif
 endfunction
 inoremap <Tab> <C-R>=CleverTab()<CR>
 
@@ -42,7 +47,7 @@ inoremap <Tab> <C-R>=CleverTab()<CR>
 nmap ,v :tabnew ~/.vimrc<CR>
 nmap ,s :so ~/.vimrc<cr>
 
-"moverse entre <++> 
+"""moverse entre <++> 
 nnoremap <c-j> /<++><cr>c/+>/e<cr>
 inoremap <c-j> <ESC>/<++><cr>c/+>/e<cr>
 
@@ -65,7 +70,7 @@ endfunction
 set tabstop=2 ""numero de espacios por un tab
 set sw=3 ""numero de espacios por indent
 
-"usar los 256 colores
+""usar los 256 colores
 :set t_Co=256 
 colorscheme xoria256
 ":colorscheme desert256
