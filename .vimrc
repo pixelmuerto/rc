@@ -51,12 +51,12 @@ function! LoadTemplate(extension)
 	silent! :execute 'source ~/.vim/templates/'. a:extension. '.snippets.vim'
 endfunction
 
-"function! LoadSnippets(extension)
-"	silent! :execute 'source ~/.vim/templates/'. a:extension. '.snippets.vim' 
-"endfunction
+function! LoadSnippets(extension)
+	silent! :execute 'source ~/.vim/templates/'. a:extension. '.snippets.vim' 
+endfunction
 ""templates y snippets en base a la extension
 :autocmd BufNewFile * silent! call LoadTemplate('%:e')
-":autocmd BufRead,BufNewFile * silent! call LoadSnippets('%:e')
+:autocmd BufRead,BufNewFile * silent! call LoadSnippets('%:e')
 "}}}1
 ""autoindent y smartindent
 :set ai
@@ -88,7 +88,7 @@ autocmd VimEnter * call LoadSession()
 autocmd VimLeave * call SaveSession()
 "}}}1
 ""limpiar la terminal al salir de vim
-autocmd VimLeave * !clear
+"autocmd VimLeave * !clear
 
 """""redirigir salida de comando
 """manual 
