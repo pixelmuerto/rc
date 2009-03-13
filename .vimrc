@@ -14,19 +14,23 @@ filetype on
 ""taglist
 "TlistToggle
 
-""resaltar busqueda
-":set hls
-
-""correccion ortografia, [s ]s z= zg 
-""desde vim 7
+"Busqueda {{{
+set hls
+set incsearch
+""}}}""correccion ortografia {{{
+"" [s ]s z= zg 
 "augroup filetypedetect
 "au BufNewFile,BufRead *.txt set spell
 "au BufNewFile,BufRead *.tex set spell
 "augroup END
 set spelllang=es
-
+""}}}
+" Folding {{{
 ""metodo de folding
-:set fdm=marker
+set fdm=marker
+""auto cerrado
+"set fcl=all
+""}}}
 "Completar con tab{{{1
 function! CleverTab()
   let col = col('.') - 1
@@ -61,21 +65,24 @@ endfunction
 ""autoindent y smartindent
 :set ai
 ":set si
-set tabstop=2 ""numero de espacios por un tab
+set tabstop=3 ""numero de espacios por un tab
 set sw=3 ""numero de espacios por indent
 
-""usar los 256 colores
-:set t_Co=256 
-colorscheme xoria256
-":colorscheme desert256
-":colorscheme calmar256
+"256 colores {{{
+if $TERM =~ '^xterm'
+	set t_Co=256
+	colorscheme pixelmuerto
+	"colorscheme xoria256
+	"colorscheme calmar256
+endif
+""}}}
 "numero de linea y color
 :hi LineNr ctermfg=darkgray ctermbg=black 
 :set nu
 ":set cursorline 
 ":hi CursorLine cterm=NONE ctermbg=236
-
-""guardar y abrir ultima session {{{1
+""Ultima session {{{1
+""guardar y abrir
 function! SaveSession()
 	execute 'mksession! ~/.vim/sessions/session.vim'
 endfunction

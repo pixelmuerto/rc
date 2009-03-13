@@ -255,6 +255,7 @@ keybinding({ modkey, "Control" }, "Down", function () awful.client.moveresize(0,
 keybinding({ modkey, "Control" }, "Left", function () awful.client.moveresize(-5, 0, 0, 0) end):add()
 keybinding({ modkey, "Control" }, "Right", function () awful.client.moveresize(5, 0, 0, 0) end):add()
 -- Redimencionar cliente
+-- las teclas para ampliar no funcionan bien con todos los clientes
 keybinding({ modkey, "Mod1" }, "Up", function () awful.client.moveresize(0, 0, 0, -5) end):add()
 keybinding({ modkey, "Mod1" }, "Down", function () awful.client.moveresize(0, 0, 0, 5) end):add()
 keybinding({ modkey, "Mod1" }, "Left", function () awful.client.moveresize(0, 0, -5, 0) end):add()
@@ -394,7 +395,7 @@ awful.hooks.manage.register(function (c)
     -- awful.client.setslave(c)
 
     -- Honor size hints: if you want to drop the gaps between windows, set this to false.
-    -- c.honorsizehints = false
+    c.honorsizehints = false
 end)
 
 -- Hook function to execute when arranging the screen.
