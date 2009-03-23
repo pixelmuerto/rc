@@ -12,7 +12,6 @@ caption splitonly  "%{Kk}[ %-w%{= Kk}%50>%n %t%{-}%+w ]%<"
 hardstatus alwayslastline
 hardstatus string '%{= kK}[ %h ] %-Lw%{= KW}%50>%n%f %t%{= kK}%+Lw%< %{=kG}%-= %d %M %c%{-}'
 
-
 ### some basic stuff
 ###
 #########################################################################

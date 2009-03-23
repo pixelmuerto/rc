@@ -2,6 +2,7 @@
 " Last Change: 2009-03-13 
 " Maintainer: pixelmuerto 
 " License: public domain
+" Version: 0.1
 " Based: Heavily based on 'xoria' and calmar256-dark color scheme.
 " for a 256 color capable terminal like xterm-256color, ... or gvim as well
 " "{{{
@@ -87,7 +88,7 @@ let s:colors256 = [
             \ ["DiffChange",    "",     "18",   "83",   "",         ""   ],
             \ ["DiffDelete",    "",     "79",   "124",  "",         ""   ],
             \ ["DiffAdd",       "",     "79",   "21",   "",         ""   ],
-            \ ["Folded",        "", 	 "252",   "232",  "",         ""   ],
+            \ ["Folded",        "", 	 "252",   "60",  "",         ""   ],
             \ ["FoldedColumn",  "",     "248",   "",  "",         ""   ],
             \ ["FoldColumn",    "",     "248",   "",  "",         ""   ],
             \ ["Directory",     "",     "39",   "",     "",         ""   ],
@@ -99,7 +100,7 @@ let s:colors256 = [
             \ ["VisualNOS",     "bold", "247",   "",  "",         ""   ],
             \ ["Comment",       "",     "244",   "",     "",         ""   ],
             \ ["Constant",       "",     "187",   "",     "",         ""   ],
-            \ ["String",        "",     "187",  "",     "",         ""   ],
+            \ ["String",        "",     "181",  "",     "",         ""   ],
             \ ["Error",         "",     "196",   "",     "",         ""   ],
             \ ["Identifier",    "",     "150",   "",     "",         ""   ],
             \ ["Ignore",        "",     "238",     "",     "",         ""   ],
