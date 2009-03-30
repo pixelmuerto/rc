@@ -13,7 +13,6 @@ filetype on
 
 ""taglist
 "TlistToggle
-
 "Busqueda {{{
 set hls
 set incsearch
@@ -44,7 +43,7 @@ inoremap <Tab> <C-R>=CleverTab()<CR>
 
 nmap ,v :tabnew ~/.vimrc<CR>
 nmap ,s :so ~/.vimrc<cr>
-
+nmap ,c :tabnew ~/.vim/colors/pixelmuerto.vim<CR>
 """moverse entre <++> 
 nnoremap <c-j> /<++><cr>c/+>/e<cr>
 inoremap <c-j> <ESC>/<++><cr>c/+>/e<cr>
@@ -117,4 +116,14 @@ function! TabMessage(cmd)
 	set nomodified
 endfunction
 command! -nargs=+ -complete=command TabMessage call TabMessage(<q-args>)
+" }}}1
+" Translate {{{1
+" Traduccion, solo funcional con internet
+function! Translate(entrada)
+	let en=substitute(a:entrada," ","%20","")
+	let en = substitute(en, "[ ]*$","","")
+	let  palabra= system('curl -e www.google.com "http://ajax.googleapis.com/ajax/services/language/translate?v=1.0&q='.en.'&langpair=en%7Ces"')
+	echo  split(strpart(palabra,stridx(palabra,"Text") + 7 ),'\"')[0]
+endfunction
+command! -nargs=+ -complete=command Translate call Translate(<q-args>)
 " }}}1
