@@ -43,7 +43,10 @@ inoremap <Tab> <C-R>=CleverTab()<CR>
 
 nmap ,v :tabnew ~/.vimrc<CR>
 nmap ,s :so ~/.vimrc<cr>
-nmap ,c :tabnew ~/.vim/colors/pixelmuerto.vim<CR>
+"nmap ,c :tabnew ~/.vim/colors/pixelmuerto.vim<CR>
+nmap ,c :TlistClose<CR>
+nmap ,o :TlistOpen<CR>
+nmap ,t :Translate
 """moverse entre <++> 
 nnoremap <c-j> /<++><cr>c/+>/e<cr>
 inoremap <c-j> <ESC>/<++><cr>c/+>/e<cr>
@@ -120,7 +123,7 @@ command! -nargs=+ -complete=command TabMessage call TabMessage(<q-args>)
 " Translate {{{1
 " Traduccion, solo funcional con internet
 function! Translate(entrada)
-	let en=substitute(a:entrada," ","%20","")
+	let en=substitute(a:entrada," ","%20","g")
 	let en = substitute(en, "[ ]*$","","")
 	let  palabra= system('curl -e www.google.com "http://ajax.googleapis.com/ajax/services/language/translate?v=1.0&q='.en.'&langpair=en%7Ces"')
 	echo  split(strpart(palabra,stridx(palabra,"Text") + 7 ),'\"')[0]

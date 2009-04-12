@@ -33,3 +33,6 @@ keybinding({ modkey }, "Menu", function()
 --		 end
 	end 
 end):add()
+-- Para volumen
+keybinding({ }, "#174", function () os.execute("amixer set PCM 5dB-") end):add()
+keybinding({ }, "#176", function () os.execute("amixer set PCM 5dB+") end):add()

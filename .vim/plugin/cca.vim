@@ -190,7 +190,7 @@ if !exists('cca_hotkey')
 endif
 
 if !exists('cca_submitkey')
-    let cca_submitkey = "<m-s>"
+    let cca_submitkey = "<m-f>"
 endif
 
 " }}}2
