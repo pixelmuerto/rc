@@ -1,0 +1,7 @@
+#!/bin/bash
+#Pasando mensajes en colores variados a screen
+cadena="mensaje"
+cadena=""
+#echo -e "\033[47m\033[1;31mBright red on white.\033[0m"
+#echo  -e "\x1b[48;5;240m $cadena\x1b[0m"
+echo -e "\005{= kR}$cadena\005{-}"
