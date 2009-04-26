@@ -30,14 +30,14 @@ if exists('loaded_cca')
     
 
     " TODO: what is the ext-name of this filetype ?
-    " let b:{cca_filetype_ext_var} = '<{ext}>'
+    " let b:{cca_filetype_ext_var} = '<{tex}>'
     let b:{cca_locale_tag_var} = { "start": "<{", "end"  : "}\>", "cmd"  : ":"}
 
     call s:define_snippets()
 endif
 
 if exists('loaded_ctk')
-    " let b:{ctk_filetype_ext_var} = '<{ext}>'
+    " let b:{ctk_filetype_ext_var} = '<{tex}>'
     call s:set_compiler_info()
 endif
 

@@ -85,7 +85,10 @@ for s = 1, screen.count() do
     -- Each screen has its own tag table.
     tags[s] = {}
     -- Create 9 tags per screen.
-    for tagnumber = 1, 9 do
+	 -- el primer tag en fullscreen
+	 tags[s][1]=tag({name = "1", layout ="fullscreen"})
+	 tags[s][1].screen = s
+    for tagnumber = 2, 9 do
         tags[s][tagnumber] = tag({ name = tagnumber, layout = layouts[1] })
         -- Add tags to screen one by one
         tags[s][tagnumber].screen = s
