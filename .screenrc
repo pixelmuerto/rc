@@ -20,7 +20,7 @@ hardstatus string '%{= kK}[ %h ] %-Lw%{= KW}%50>%n%f %t%{= kK}%+Lw%< %{=kG}%-= %
 #########################################################################
 activity "%"                    # tell me when stuff happens!           #
 crlf off                        # no thanks.                            #
-defmonitor on                   # turn monitoring on                    #
+defmonitor off                   # turn monitoring on                    #
 defscrollback 1000              # please sir, can i have some more?     #
 shell -$SHELL                   # i'll take my default shell.           #
 startup_message off             # don't want this either.               #
@@ -43,6 +43,10 @@ defbce "on"
 # Emulate .logout message
 #pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
 
+#default windows
+screen -t bash 0 bash
+#screen -t zsh 1 zsh
+
 ###
 # Let's do some bindings.
 ###   ctrl-a LETRA
@@ -53,6 +57,7 @@ defbce "on"
 bind m screen -t 'moc' mocp
 bind v screen -t 'vim' vim
 bind i screen -t 'irssi' irssi
+bind u screen -t 'mutt' mutt
 bind - resize -1
 bind + resize +1
 #####################################################

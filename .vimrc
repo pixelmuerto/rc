@@ -11,6 +11,8 @@ syntax on
 filetype plugin on
 filetype on
 
+so ~/.vim/misFunciones.vim
+
 ""taglist
 "TlistToggle
 "Busqueda {{{
@@ -46,7 +48,7 @@ nmap ,s :so ~/.vimrc<cr>
 "nmap ,c :tabnew ~/.vim/colors/pixelmuerto.vim<CR>
 nmap ,c :TlistClose<CR>
 nmap ,o :TlistOpen<CR>
-nmap ,t :Translate
+nmap ,t :Translate<space>
 """moverse entre <++> 
 nnoremap <c-j> /<++><cr>c/+>/e<cr>
 inoremap <c-j> <ESC>/<++><cr>c/+>/e<cr>
