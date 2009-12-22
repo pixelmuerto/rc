@@ -1,0 +1,12 @@
+[user]
+	name = pixelmuerto
+	email = jabar004@gmail.com
+
+[diff]
+    color = auto
+
+[pager]
+    color = true
+
+[status]
+    color = auto

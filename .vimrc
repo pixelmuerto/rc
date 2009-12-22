@@ -136,6 +136,7 @@ command! -nargs=+ -complete=command Translate call Translate(<q-args>)
 " ReordenarFecha {{{2
 
 function! ReordenarFecha()
+	"de dia-mes-anno a anno-mes-dia
 	exe "%s/^\\([0-9][0-9]\\)-\\([0-9][0-9]\\)-\\([0-9][0-9][0-9][0-9]\\)\t/\\3-\\2-\\1\t/"
 endfunction
 

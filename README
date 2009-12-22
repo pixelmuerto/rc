@@ -1,0 +1,3 @@
+Archivos de configuración.
+La mayoría deben ser linkeados simbolicamente al $HOME.
+Recodar revisar este directorio con ls -a.
