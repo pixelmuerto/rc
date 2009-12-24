@@ -176,3 +176,16 @@ endfunction
 
 " }}}2
 " }}}1
+" CsvToSql {{{1
+	"convierte un csv a sql, solo el ultimo campo numerico
+function! CsvToSql(entrada)
+	"exe "%s/\(09[0-9][0-9]01\);/\1;0-10;/"
+	exe "%s/ //g"
+	exe "%s/;/','/g" 
+	exe "%s/^/INSERT INTO `".a:entrada."` VALUES ('/"
+	exe "%s/$/);/"
+	exe "%s/,'\\([0-9,.]*\\));$/,\\1);/" 
+endfunction
+command! -nargs=+ -complete=command CsvToSql call CsvToSql(<q-args>)
+
+" }}}1
