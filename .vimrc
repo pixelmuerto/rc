@@ -189,3 +189,20 @@ endfunction
 command! -nargs=+ -complete=command CsvToSql call CsvToSql(<q-args>)
 
 " }}}1
+" CommentLines {{{1
+" comment out highlighted lines according to file type
+" put a line like the following in your ~/.vim/filetype.vim file
+" and remember to turn on filetype detection: filetype on
+" au! BufRead,BufNewFile *.sh,*.tcl,*.php,*.pl let Comment="#"
+" if the comment character for a given filetype happens to be @
+" then use let Comment="\@" to avoid problems...
+
+function! CommentLines()
+  "let Comment="#" " shell, tcl, php, perl
+  exe ":s@^@".g:Comment."@g"
+  exe ":s@$@".g:EndComment."@g"
+endfunction
+" map visual mode keycombo 'co' to this function
+vmap co :call CommentLines()<CR>
+
+" }}}1
