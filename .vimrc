@@ -11,7 +11,7 @@ syntax on
 filetype plugin on
 filetype on
 
-so ~/.vim/misFunciones.vim
+"so ~/.vim/misFunciones.vim
 
 ""taglist
 "TlistToggle
@@ -95,8 +95,8 @@ function! LoadSession()
 		execute 'source ~/.vim/sessions/session.vim'
 	endif
 endfunction
-autocmd VimEnter * call LoadSession()
-autocmd VimLeave * call SaveSession()
+"autocmd VimEnter * call LoadSession()
+"autocmd VimLeave * call SaveSession()
 "}}}1
 ""limpiar la terminal al salir de vim
 "autocmd VimLeave * !clear
