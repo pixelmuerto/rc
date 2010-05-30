@@ -11,6 +11,8 @@ syntax on
 filetype plugin on
 filetype on
 
+set encoding=utf-8
+
 "so ~/.vim/misFunciones.vim
 
 ""taglist
@@ -21,8 +23,8 @@ set incsearch
 ""}}}""correccion ortografia {{{
 "" [s ]s z= zg 
 "augroup filetypedetect
-"au BufNewFile,BufRead *.txt set spell
-"au BufNewFile,BufRead *.tex set spell
+au BufNewFile,BufRead *.txt set spell
+au BufNewFile,BufRead *.tex set spell
 "augroup END
 set spelllang=es
 ""}}}
