@@ -16,7 +16,8 @@ set nowrap
 
 "so ~/.vim/misFunciones.vim
 
-""taglist
+"" taglist
+"" para que funcione debe estar instalado  exuberant-ctags 
 "TlistToggle
 "Busqueda {{{
 set hls
