@@ -13,3 +13,9 @@ ln -s ~/src/snipmate.vim/syntax/ .
 
 - taglist.vim
 puede ser necesario instalar el paquete exuberant-ctags.
+
+- supertab 
+para poder usar el tab como autocompletado sobre snipmate
+git clone http://github.com/ervandew/supertab.git
+ln -s ~/src/supertab/plugin/supertab.vim plugin/
+ln -s ~/src/supertab/doc/supertab.txt doc/
