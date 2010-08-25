@@ -21,3 +21,4 @@ else
 	echo "Linkeado el archivo .vimrc al $HOME"
 	fi 
 fi
+# !! agregar git clone, unlink y ln -s para los plugins de vim. ver README en el directorio .vim 

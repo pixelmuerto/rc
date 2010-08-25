@@ -49,9 +49,8 @@ inoremap <Tab> <C-R>=CleverTab()<CR>
 
 nmap ,v :tabnew ~/.vimrc<CR>
 nmap ,s :so ~/.vimrc<cr>
-"nmap ,c :tabnew ~/.vim/colors/pixelmuerto.vim<CR>
-nmap ,c :TlistClose<CR>
-nmap ,o :TlistOpen<CR>
+nmap ,c :tabnew ~/.vim/colors/pixelmuerto.vim<CR>
+nmap ,o :TlistToggle<CR>
 nmap ,t :Translate<space>
 """moverse entre <++> 
 nnoremap <c-j> /<++><cr>c/+>/e<cr>
