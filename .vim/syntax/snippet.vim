@@ -1,1 +1,1 @@
-/home/juanpablo/src/snipmate.vim/syntax/snippet.vim
+/Users/pablo/src/snipmate.vim/syntax/snippet.vim

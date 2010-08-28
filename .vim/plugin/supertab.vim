@@ -1,1 +1,1 @@
-/home/juanpablo/src/supertab/plugin/supertab.vim
+/Users/pablo/src/supertab/plugin/supertab.vim

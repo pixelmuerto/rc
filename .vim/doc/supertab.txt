@@ -1,1 +1,1 @@
-/home/juanpablo/src/supertab/doc/supertab.txt
+/Users/pablo/src/supertab/doc/supertab.txt

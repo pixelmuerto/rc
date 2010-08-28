@@ -1,1 +1,1 @@
-/home/juanpablo/src/snipmate.vim/ftplugin/html_snip_helper.vim
+/Users/pablo/src/snipmate.vim/ftplugin/html_snip_helper.vim

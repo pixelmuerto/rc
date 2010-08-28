@@ -4,6 +4,8 @@ dirLocal=$PWD
 dirPadre=${PWD%/*}
 # }}}
 #{{{ ln -s a los archivos de configuracion 
+## agregar mas archivos al array para ln 
+## agregar algunos ifs para relinkear cuando sea necesario
 archivosRc=( .vim .vimrc )
 for a in ${archivosRc[@]}
 do
@@ -21,6 +23,7 @@ do
 done
 # }}}
 # Clonado de plugins de vim {{{
+## pensar si es las conveniente agregar archivos al gitignore y solo sean ubicados a traves de este script
 # http://github.com/msanders/snipmate.vim.git
 # http://github.com/ervandew/supertab.git
 repos=( msanders/snipmate.vim.git ervandew/supertab.git )
@@ -64,10 +67,9 @@ do
 						relink=$(ls -l $pContentToMove | awk '{print $(NF-2),$(NF-1),$NF}')
 						echo "relinkeado $relink"
 					else
-						#ln -s $PWD/$pContent/* $pContentToMove
 						for c in $(ls $pContent)
 						do
-							if [[ -e $pContentToMove/$c ]]
+							if [[ -e $pContentToMove/$c || -h $pContentToMove/$c ]]
 							then
 								if [[ -h $pContentToMove/$c  ]]
 								then 
