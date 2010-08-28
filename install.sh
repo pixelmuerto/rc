@@ -1,7 +1,9 @@
 #!/bin/bash
+# Algunas variables utiles {{{ 
 dirLocal=$PWD
 dirPadre=${PWD%/*}
-echo "Ubicacion actual $dirLocal"
+# }}}
+#{{{ ln -s a los archivos de configuracion 
 archivosRc=( .vim .vimrc )
 for a in ${archivosRc[@]}
 do
@@ -17,10 +19,10 @@ do
 		fi 
 	fi
 done
-# !! agregar git clone, unlink y ln -s para los plugins de vim. ver README en el directorio .vim 
-# 
-#http://github.com/msanders/snipmate.vim.git
-#http://github.com/ervandew/supertab.git
+# }}}
+# Clonado de plugins de vim {{{
+# http://github.com/msanders/snipmate.vim.git
+# http://github.com/ervandew/supertab.git
 repos=( msanders/snipmate.vim.git ervandew/supertab.git )
 for repo in ${repos[@]}
 do
@@ -51,14 +53,37 @@ do
 			if [[ "$pContent" != ".git" && "$pContent" != "." ]]
 			then
 				pContentToMove=$vimDir/$pContent
-				if [ ! -d $pContentToMove ] 
+				if [ ! -e $pContentToMove ] 
 				then 
-					echo "No existe $pContentToMove"
-					mkdir $pContentToMove
-					echo "mkdir $pContentToMove"
-					echo "Directorio $pContentToMove creado"
+					ln -s $PWD/$pContent $vimDir
+				else
+					if [ -h $pContentToMove ] 
+					then 
+						unlink $pContentToMove 	
+						ln -s $PWD/$pContent $pContentToMove 
+						relink=$(ls -s $pContentToMove | awk '{print $(NF-2),$(NF-1),$NF}')
+						echo "relinkeado $relink"
+					else
+						#ln -s $PWD/$pContent/* $pContentToMove
+						for c in $(ls $pContent)
+						do
+							if [[ -e $pContentToMove/$c ]]
+							then
+								if [[ -h $pContentToMove/$c  ]]
+								then 
+									unlink $pContentToMove/$c
+									ln -s $PWD/$pContent/$c $pContentToMove/$c 
+									relink=$(ls -l $pContentToMove/$c | awk '{print $(NF-2),$(NF-1),$NF}')
+									echo "relinkeado $relink"
+								else
+									echo "$pContentToMove/$c ya existe!"
+								fi 
+							else
+								ln -s $PWD/$pContent/$c $pContentToMove/$c 
+							fi
+						done
+					fi
 				fi
-			ln -s $PWD/$pContent/* $pContentToMove
 			fi
 		done
 		cd $dirLocal 
@@ -67,3 +92,4 @@ do
 		echo "No se clono correctamente $r"
 	fi
 done
+# }}}
