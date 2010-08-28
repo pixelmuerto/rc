@@ -15,7 +15,7 @@ do
 	else
 		if [ -e $a ]
 		then
-		ln -s $a $HOME
+		ln -s $dirLocal/$a $HOME
 		echo "ln -s $a $HOME"
 		echo "Linkeado el directorio $a al $HOME"
 		fi 
