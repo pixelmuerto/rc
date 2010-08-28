@@ -4,10 +4,9 @@ dirLocal=$PWD
 dirPadre=${PWD%/*}
 # }}}
 #{{{ ln -s a los archivos de configuracion 
-## agregar mas archivos al array para ln 
 ## agregar algunos ifs para relinkear cuando sea necesario
 ## .bashrc bin .config .dircolors .git .gitconfig .gitignore .hgrc README .screenrc .vim .vimrc .Xresources 
-archivosRc=( .vim .vimrc .gitconfig .hgrc .screenrc .Xresources .dircolors )
+archivosRc=( .vim .vimrc .gitconfig .hgrc .screenrc .Xresources .dircolors .bash_profile)
 for a in ${archivosRc[@]}
 do
 	if [ -e $HOME/$a ]

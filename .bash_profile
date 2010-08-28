@@ -98,6 +98,11 @@ then
 	. $HOME/.bash_completion.d/*
 fi
 
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+	. ~/.bashrc
+fi
+
 #aliases
 alias ls='ls --color=auto'
 #alias ls='ls -G'
@@ -108,3 +113,5 @@ alias screen='$HOME/opt/bin/screen'
 PS1='\u@\h \w\$ '
 
 PATH=$PATH:$HOME/opt/bin
+PATH=$PATH:$HOME/bin
+export PATH
