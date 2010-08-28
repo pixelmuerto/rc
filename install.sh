@@ -6,7 +6,8 @@ dirPadre=${PWD%/*}
 #{{{ ln -s a los archivos de configuracion 
 ## agregar mas archivos al array para ln 
 ## agregar algunos ifs para relinkear cuando sea necesario
-archivosRc=( .vim .vimrc )
+## .bashrc bin .config .dircolors .git .gitconfig .gitignore .hgrc README .screenrc .vim .vimrc .Xresources 
+archivosRc=( .vim .vimrc .gitconfig .hgrc .screenrc .Xresources .dircolors )
 for a in ${archivosRc[@]}
 do
 	if [ -e $HOME/$a ]
@@ -27,9 +28,17 @@ done
 # http://github.com/msanders/snipmate.vim.git
 # http://github.com/ervandew/supertab.git
 cd .vim
-mkdir after autoload ftplugin syntax
-echo "Creando directorios necesarios"
-echo "mkdir after autoload ftplugin"
+dirs=(after autoload ftplugin syntax)
+for d in ${dirs[@]}
+do 
+	if [ ! -d $d ]
+	then 
+		mkdir $dirLocal/vim/$d 
+		echo "mkdir $dirLocal/vim/$d"
+		echo "Directorio $dirLocal/vim/$d creado"
+	fi
+done
+echo "Creando directorios necesarios para vim"
 cd $dirLocal
 repos=( msanders/snipmate.vim.git ervandew/supertab.git )
 for repo in ${repos[@]}
@@ -64,6 +73,8 @@ do
 				if [ ! -e $pContentToMove ] 
 				then 
 					ln -s $PWD/$pContent $vimDir
+					relink=$(ls -l $pContentToMove | awk '{print $(NF-2),$(NF-1),$NF}')
+					echo "relinkeado $relink"
 				else
 					if [ -h $pContentToMove ] 
 					then 
@@ -87,6 +98,8 @@ do
 								fi 
 							else
 								ln -s $PWD/$pContent/$c $pContentToMove/$c 
+								relink=$(ls -l $pContentToMove/$c | awk '{print $(NF-2),$(NF-1),$NF}')
+								echo "relinkeado $relink"
 							fi
 						done
 					fi
