@@ -26,6 +26,11 @@ done
 ## pensar si es las conveniente agregar archivos al gitignore y solo sean ubicados a traves de este script
 # http://github.com/msanders/snipmate.vim.git
 # http://github.com/ervandew/supertab.git
+cd .vim
+mkdir after autoload ftplugin syntax
+echo "Creando directorios necesarios"
+echo "mkdir after autoload ftplugin"
+cd $dirLocal
 repos=( msanders/snipmate.vim.git ervandew/supertab.git )
 for repo in ${repos[@]}
 do
