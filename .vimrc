@@ -25,7 +25,7 @@ set incsearch
 ""}}}""correccion ortografia {{{
 "" [s ]s z= zg 
 "augroup filetypedetect
-au BufNewFile,BufRead *.txt set spell
+"au BufNewFile,BufRead *.txt set spell
 au BufNewFile,BufRead *.tex set spell
 "augroup END
 set spelllang=es
