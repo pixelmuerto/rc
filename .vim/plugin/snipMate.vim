@@ -1,1 +1,1 @@
-/Users/pablo/src/snipmate.vim/plugin/snipMate.vim
+/home/juanpablo/src/snipmate.vim/plugin/snipMate.vim
