@@ -4,7 +4,9 @@ dirLocal=$PWD
 dirPadre=${PWD%/*}
 # }}}
 #{{{ ln -s a los archivos de configuracion 
-archivosRc=( .vim .vimrc )
+## agregar algunos ifs para relinkear cuando sea necesario
+## .bashrc bin .config .dircolors .git .gitconfig .gitignore .hgrc README .screenrc .vim .vimrc .Xresources 
+archivosRc=( .vim .vimrc .gitconfig .hgrc .screenrc .Xresources .dircolors .bashrc)
 for a in ${archivosRc[@]}
 do
 	if [ -e $HOME/$a ]
@@ -13,7 +15,7 @@ do
 	else
 		if [ -e $a ]
 		then
-		ln -s $a $HOME
+		ln -s $dirLocal/$a $HOME
 		echo "ln -s $a $HOME"
 		echo "Linkeado el directorio $a al $HOME"
 		fi 
@@ -21,8 +23,22 @@ do
 done
 # }}}
 # Clonado de plugins de vim {{{
+## pensar si es las conveniente agregar archivos al gitignore y solo sean ubicados a traves de este script
 # http://github.com/msanders/snipmate.vim.git
 # http://github.com/ervandew/supertab.git
+cd .vim
+dirs=(after autoload ftplugin syntax)
+for d in ${dirs[@]}
+do 
+	if [ ! -d $d ]
+	then 
+		mkdir $dirLocal/vim/$d 
+		echo "mkdir $dirLocal/vim/$d"
+		echo "Directorio $dirLocal/vim/$d creado"
+	fi
+done
+echo "Creando directorios necesarios para vim"
+cd $dirLocal
 repos=( msanders/snipmate.vim.git ervandew/supertab.git )
 for repo in ${repos[@]}
 do
@@ -56,6 +72,8 @@ do
 				if [ ! -e $pContentToMove ] 
 				then 
 					ln -s $PWD/$pContent $vimDir
+					relink=$(ls -l $pContentToMove | awk '{print $(NF-2),$(NF-1),$NF}')
+					echo "relinkeado $relink"
 				else
 					if [ -h $pContentToMove ] 
 					then 
@@ -64,10 +82,9 @@ do
 						relink=$(ls -l $pContentToMove | awk '{print $(NF-2),$(NF-1),$NF}')
 						echo "relinkeado $relink"
 					else
-						#ln -s $PWD/$pContent/* $pContentToMove
 						for c in $(ls $pContent)
 						do
-							if [[ -e $pContentToMove/$c ]]
+							if [[ -e $pContentToMove/$c || -h $pContentToMove/$c ]]
 							then
 								if [[ -h $pContentToMove/$c  ]]
 								then 
@@ -80,6 +97,8 @@ do
 								fi 
 							else
 								ln -s $PWD/$pContent/$c $pContentToMove/$c 
+								relink=$(ls -l $pContentToMove/$c | awk '{print $(NF-2),$(NF-1),$NF}')
+								echo "relinkeado $relink"
 							fi
 						done
 					fi
@@ -93,4 +112,22 @@ do
 		echo "No se clono correctamente $r"
 	fi
 done
+# }}}
+# bash completions {{{
+mkdir .bash_completion.d
+echo "mkdir .bash_completion.d"
+echo "Directorio $dirLocal/.bash_completion.d creado"
+if [ ! -d $HOME/.bash_completion.d ]
+then 
+	ln -s $dirLocal/.bash_completion.d $HOME
+	relink=$(ls -l $HOME/.bash_completion.d | awk '{print $(NF-2),$(NF-1),$NF}')
+	echo "relinkeado $relink"
+fi 
+cd .bash_completion.d 
+echo "cd .bash_completion.d"
+echo "Descargando git-completion"
+echo "wget -c http://repo.or.cz/w/git.git/blob_plain/HEAD:/contrib/completion/git-completion.bash"
+wget -c http://repo.or.cz/w/git.git/blob_plain/HEAD:/contrib/completion/git-completion.bash
+cd $dirLocal 
+echo "cd $dirLocal"
 # }}}

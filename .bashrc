@@ -1,3 +1,9 @@
+
+# Get the aliases and functions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
 # Define a few Colours
 BLACK='\e[0;30m'
 BLUE='\e[0;34m'
@@ -93,6 +99,11 @@ complete -F _compssh ssh
 
 eval $(dircolors  $HOME/.dircolors)
 
+if [ -d $HOME/.bash_completion.d/ ]
+then 
+	. $HOME/.bash_completion.d/*
+fi
+
 #aliases
 alias ls='ls --color=auto'
 #alias ls='ls -G'
@@ -101,5 +112,8 @@ alias lh='ls -lh'
 alias la='ls -a'
 alias screen='$HOME/opt/bin/screen'
 PS1='\u@\h \w\$ '
+TERM="xterm"
 
 PATH=$PATH:$HOME/opt/bin
+PATH=$PATH:$HOME/bin
+export PATH

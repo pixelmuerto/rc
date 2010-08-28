@@ -1,1 +1,0 @@
-/home/juanpablo/src/snipmate.vim/doc/snipMate.txt
