@@ -61,7 +61,7 @@ do
 					then 
 						unlink $pContentToMove 	
 						ln -s $PWD/$pContent $pContentToMove 
-						relink=$(ls -s $pContentToMove | awk '{print $(NF-2),$(NF-1),$NF}')
+						relink=$(ls -l $pContentToMove | awk '{print $(NF-2),$(NF-1),$NF}')
 						echo "relinkeado $relink"
 					else
 						#ln -s $PWD/$pContent/* $pContentToMove
@@ -87,6 +87,7 @@ do
 			fi
 		done
 		cd $dirLocal 
+		echo
 		echo "cd $dirLocal"
 	else 
 		echo "No se clono correctamente $r"
