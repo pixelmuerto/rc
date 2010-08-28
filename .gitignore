@@ -12,3 +12,4 @@
 .vim/plugin/supertab.vim
 .vim/syntax/snippet.vim
 .vim/snippets
+.bash_completion.d

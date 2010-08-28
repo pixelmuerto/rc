@@ -114,3 +114,21 @@ do
 	fi
 done
 # }}}
+# bash completions {{{
+mkdir .bash_completion.d
+echo "mkdir .bash_completion.d"
+echo "Directorio $dirLocal/.bash_completion.d creado"
+if [ ! -d $HOME/.bash_completion.d ]
+then 
+	ln -s $dirLocal/.bash_completion.d $HOME
+	relink=$(ls -l $HOME/.bash_completion.d | awk '{print $(NF-2),$(NF-1),$NF}')
+	echo "relinkeado $relink"
+fi 
+cd .bash_completion.d 
+echo "cd .bash_completion.d"
+echo "Descargando git-completion"
+echo "wget -c http://repo.or.cz/w/git.git/blob_plain/HEAD:/contrib/completion/git-completion.bash"
+wget -c http://repo.or.cz/w/git.git/blob_plain/HEAD:/contrib/completion/git-completion.bash
+cd $dirLocal 
+echo "cd $dirLocal"
+# }}}

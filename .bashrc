@@ -93,6 +93,11 @@ complete -F _compssh ssh
 
 eval $(dircolors  $HOME/.dircolors)
 
+if [ -d $HOME/.bash_completion.d/ ]
+then 
+	. $HOME/.bash_completion.d/*
+fi
+
 #aliases
 alias ls='ls --color=auto'
 #alias ls='ls -G'
