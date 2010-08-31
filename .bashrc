@@ -90,12 +90,12 @@ unset   rgb_restore   \
  rgb_std       \
  rgb_usr
 # funcion de autocompletado para ssh 
-_compssh ()
-{
-cur=${COMP_WORDS[COMP_CWORD]};
-COMPREPLY=($(compgen -W "$(cat ~/.ssh/config | grep host | sed '/hostna/d;s/host //')" -- $cur))
-}
-complete -F _compssh ssh
+#_compssh ()
+#{
+#cur=${COMP_WORDS[COMP_CWORD]};
+#COMPREPLY=($(compgen -W "$(cat ~/.ssh/config | grep host | sed '/hostna/d;s/host //')" -- $cur))
+#}
+#complete -F _compssh ssh
 
 eval $(dircolors  $HOME/.dircolors)
 
