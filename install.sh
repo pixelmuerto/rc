@@ -32,9 +32,9 @@ for d in ${dirs[@]}
 do 
 	if [ ! -d $d ]
 	then 
-		mkdir $dirLocal/vim/$d 
-		echo "mkdir $dirLocal/vim/$d"
-		echo "Directorio $dirLocal/vim/$d creado"
+		mkdir $dirLocal/.vim/$d 
+		echo "mkdir $dirLocal/.vim/$d"
+		echo "Directorio $dirLocal/.vim/$d creado"
 	fi
 done
 echo "Creando directorios necesarios para vim"
