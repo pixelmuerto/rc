@@ -19,6 +19,9 @@ set nowrap
 "" taglist
 "" para que funcione debe estar instalado  exuberant-ctags 
 "TlistToggle
+" para las tags en ~/.ctags
+let tlist_tex_settings   = 'latex;s:sections;g:graphics;l:labels'
+let tlist_make_settings  = 'make;m:makros;t:targets'
 "Busqueda {{{
 set hls
 set incsearch

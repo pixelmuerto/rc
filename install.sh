@@ -6,7 +6,7 @@ dirPadre=${PWD%/*}
 #{{{ ln -s a los archivos de configuracion 
 ## agregar algunos ifs para relinkear cuando sea necesario
 ## .bashrc bin .config .dircolors .git .gitconfig .gitignore .hgrc README .screenrc .vim .vimrc .Xresources 
-archivosRc=( .vim .vimrc .gitconfig .hgrc .screenrc .Xresources .dircolors .bashrc)
+archivosRc=( .vim .vimrc .gitconfig .hgrc .screenrc .Xresources .dircolors .bashrc .ctags)
 for a in ${archivosRc[@]}
 do
 	if [ -e $HOME/$a ]
