@@ -22,6 +22,7 @@ set nowrap
 " para las tags en ~/.ctags
 let tlist_tex_settings   = 'latex;s:sections;g:graphics;l:labels'
 let tlist_make_settings  = 'make;m:makros;t:targets'
+au BufRead,BufNewFile *.cu set filetype=c
 "Busqueda {{{
 set hls
 set incsearch
