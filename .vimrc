@@ -6,7 +6,7 @@
 " ==========================================================
 syntax on
 :set background=dark
-":set backspace=eol,start,indent
+:set backspace=eol,start,indent
 
 filetype plugin on
 filetype on
