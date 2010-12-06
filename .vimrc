@@ -12,7 +12,7 @@ filetype plugin on
 filetype on
 
 set encoding=utf-8
-set nowrap
+set wrap
 
 "so ~/.vim/misFunciones.vim
 
