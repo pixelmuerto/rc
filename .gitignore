@@ -10,6 +10,7 @@
 .vim/ftplugin/html_snip_helper.vim
 .vim/plugin/snipMate.vim
 .vim/plugin/supertab.vim
+.vim/plugin/python_fold.vim
 .vim/syntax/snippet.vim
 .vim/snippets
 .bash_completion.d
