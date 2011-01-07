@@ -56,6 +56,7 @@ nmap ,s :so ~/.vimrc<cr>
 nmap ,c :tabnew ~/.vim/colors/pixelmuerto.vim<CR>
 nmap ,o :TlistToggle<CR>
 nmap ,t :Translate<space>
+nmap ,w :sp $WIKI<CR>
 """moverse entre <++> 
 nnoremap <c-j> /<++><cr>c/+>/e<cr>
 inoremap <c-j> <ESC>/<++><cr>c/+>/e<cr>

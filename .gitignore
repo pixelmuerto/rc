@@ -12,5 +12,6 @@
 .vim/plugin/supertab.vim
 .vim/plugin/python_fold.vim
 .vim/syntax/snippet.vim
+.vim/colors/*
 .vim/snippets
 .bash_completion.d
