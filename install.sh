@@ -39,7 +39,7 @@ do
 done
 echo "Creando directorios necesarios para vim"
 cd $dirLocal
-repos=( msanders/snipmate.vim.git ervandew/supertab.git vim-scripts/python_fold.git vim-scripts/xoria256.vim.git vim-scripts/mayansmoke.git pixelmuerto/vim-pixelmuerto.git )
+repos=( msanders/snipmate.vim.git ervandew/supertab.git vim-scripts/python_fold.git vim-scripts/xoria256.vim.git vim-scripts/mayansmoke.git pixelmuerto/vim-pixelmuerto.git hallison/vim-markdown.git )
 for repo in ${repos[@]}
 do
 	#echo "http://github.com/$repo"

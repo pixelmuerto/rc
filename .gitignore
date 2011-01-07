@@ -5,13 +5,13 @@
 .vim/.netrwhist
 .vim/after/plugin
 .vim/autoload/snipMate.vim
-.vim/doc/snipMate.txt
-.vim/doc/supertab.txt
+.vim/doc/*
 .vim/ftplugin/html_snip_helper.vim
 .vim/plugin/snipMate.vim
 .vim/plugin/supertab.vim
 .vim/plugin/python_fold.vim
-.vim/syntax/snippet.vim
+.vim/syntax/*
 .vim/colors/*
 .vim/snippets
+.vim/ftdetect
 .bash_completion.d
