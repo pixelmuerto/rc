@@ -116,7 +116,7 @@ TERM="xterm"
 
 PATH=$PATH:$HOME/opt/bin
 PATH=$PATH:$HOME/bin
-export WIKI=$HOME/src/rc.wiki
+export WIKI=$HOME/src/pixelmuerto.github.com/wiki
 export PATH
 alias xtermHuge='xterm -fn *-*-*-*-*-*-20-*'
 alias xtermHugeWhite='xtermHuge -bg white -fg black'
