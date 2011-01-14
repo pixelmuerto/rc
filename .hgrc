@@ -2,6 +2,7 @@
 username = juanpablo <jabar004@gmail.com>
 [extensions]
 color = 
+hgext.graphlog = 
 [color]
 status.modified = magenta bold
 status.added = green bold

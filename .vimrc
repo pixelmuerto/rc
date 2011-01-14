@@ -33,6 +33,10 @@ function! FileTime()
   return msg
 endfunction
 
+" miniBufExpl
+map <leader>t :TMiniBufExplorer<cr>
+map <Leader>b :MiniBufExplorer<cr>
+
 "" taglist
 "" para que funcione debe estar instalado  exuberant-ctags 
 "TlistToggle
@@ -74,6 +78,9 @@ nmap ,c :tabnew ~/.vim/colors/pixelmuerto.vim<CR>
 nmap ,o :TlistToggle<CR>
 nmap ,t :Translate<space>
 nmap ,w :sp $WIKI<CR>
+"""NERDtree
+nmap ,n :NERDTreeToggle<CR>
+
 """moverse entre <++> 
 nnoremap <c-j> /<++><cr>c/+>/e<cr>
 inoremap <c-j> <ESC>/<++><cr>c/+>/e<cr>

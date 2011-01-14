@@ -15,3 +15,10 @@
 .vim/snippets/*
 .vim/ftdetect
 .bash_completion.d
+.vim/autoload/
+.vim/plugin/minibufexpl.vim
+.vim/plugin/vimproc.vim
+.vim/plugin/vimshell.vim
+.vim/test
+.vim/nerdtree_plugin
+.vim/plugin/NERD_tree.vim

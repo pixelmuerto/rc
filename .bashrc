@@ -111,6 +111,7 @@ alias ll='ls -l'
 alias lh='ls -lh'
 alias la='ls -a'
 alias screen='$HOME/opt/bin/screen'
+alias grep='grep --color'
 PS1='\u@\h \w\$ '
 TERM="xterm"
 
@@ -122,3 +123,4 @@ alias xtermHuge='xterm -fn *-*-*-*-*-*-20-*'
 alias xtermHugeWhite='xtermHuge -bg white -fg black'
 alias xtermWhite='xterm -bg white -fg black'
 export VIMHOME=$HOME/.vim
+export RC=$HOME/src/rc
