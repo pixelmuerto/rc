@@ -50,7 +50,7 @@ do
 		echo "Clonando $repoDirName"
 		r=http://github.com/$repo
 		cd ..
-		git clone $r
+		git clone $r >& /dev/null
 		echo 
 		echo "Clonado $r"
 		cd rc
