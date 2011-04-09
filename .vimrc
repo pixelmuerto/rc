@@ -101,8 +101,8 @@ endfunction
 ""autoindent y smartindent
 :set ai
 ":set si
-set tabstop=3 ""numero de espacios por un tab
-set sw=3 ""numero de espacios por indent
+"set tabstop=3 ""numero de espacios por un tab
+"set sw=3 ""numero de espacios por indent
 
 "256 colores {{{
 if $TERM =~ '^xterm'
