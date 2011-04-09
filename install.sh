@@ -60,6 +60,7 @@ do
 		echo 
 		echo "cd $dirPadre/$repoDirName"
 		cd ../$repoDirName
+		git pull
 		vimDir="$HOME/.vim"
 		vimDirContent=$(find $vimDir -maxdepth 1 -type d )
 		pluginContent=$(find . -maxdepth 1 -type d )
