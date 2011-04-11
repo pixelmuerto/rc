@@ -27,7 +27,7 @@ done
 # http://github.com/msanders/snipmate.vim.git
 # http://github.com/ervandew/supertab.git
 cd .vim
-dirs=(after autoload ftplugin syntax)
+dirs=(after autoload ftplugin syntax plugin)
 for d in ${dirs[@]}
 do 
 	if [ ! -d $d ]
@@ -39,7 +39,7 @@ do
 done
 echo "Creando directorios necesarios para vim"
 cd $dirLocal
-repos=( msanders/snipmate.vim.git ervandew/supertab.git vim-scripts/python_fold.git vim-scripts/xoria256.vim.git vim-scripts/mayansmoke.git pixelmuerto/vim-pixelmuerto.git hallison/vim-markdown.git fholgado/minibufexpl.vim.git Shougo/vimshell.git Shougo/vimproc.git scrooloose/nerdtree.git )
+repos=( vim-scripts/taglist.vim.git  msanders/snipmate.vim.git ervandew/supertab.git vim-scripts/python_fold.git vim-scripts/xoria256.vim.git vim-scripts/mayansmoke.git pixelmuerto/vim-pixelmuerto.git hallison/vim-markdown.git fholgado/minibufexpl.vim.git Shougo/vimshell.git Shougo/vimproc.git scrooloose/nerdtree.git )
 for repo in ${repos[@]}
 do
 	#echo "http://github.com/$repo"
