@@ -115,6 +115,13 @@ do
 	fi
 done
 # }}}
+# vim spell {{{
+echo "cd $dirLocal/.vim/spell"
+cd $dirLocal/.vim/spell 
+bash spell.sh
+cd $dirLocal 
+echo "cd $dirLocal"
+# }}}
 # bash completions {{{
 mkdir .bash_completion.d
 echo "mkdir .bash_completion.d"
