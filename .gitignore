@@ -12,6 +12,8 @@
 .vim/plugin/python_fold.vim
 .vim/syntax/*
 .vim/colors/*
+.vim/colors
+.vim/plugin
 .vim/snippets/*
 .vim/ftdetect
 .bash_completion.d

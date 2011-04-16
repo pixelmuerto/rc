@@ -27,7 +27,7 @@ done
 # http://github.com/msanders/snipmate.vim.git
 # http://github.com/ervandew/supertab.git
 cd .vim
-dirs=(after autoload ftplugin syntax plugin)
+dirs=(after autoload ftplugin syntax plugin snippets)
 for d in ${dirs[@]}
 do 
 	if [ ! -d $d ]
