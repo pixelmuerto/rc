@@ -48,7 +48,7 @@ do
 	if [ ! -d ../$repoDirName ]
 	then 
 		echo "Clonando $repoDirName"
-		r=http://github.com/$repo
+		r=git://github.com/$repo
 		cd ..
 		git clone $r >& /dev/null
 		echo 
@@ -123,20 +123,26 @@ cd $dirLocal
 echo "cd $dirLocal"
 # }}}
 # bash completions {{{
-mkdir .bash_completion.d
-echo "mkdir .bash_completion.d"
-echo "Directorio $dirLocal/.bash_completion.d creado"
+if [ ! -d .bash_completion.d ]
+then 
+	mkdir .bash_completion.d
+	echo "mkdir .bash_completion.d"
+	echo "Directorio $dirLocal/.bash_completion.d creado"
+fi 
 if [ ! -d $HOME/.bash_completion.d ]
 then 
 	ln -s $dirLocal/.bash_completion.d $HOME
 	relink=$(ls -l $HOME/.bash_completion.d | awk '{print $(NF-2),$(NF-1),$NF}')
 	echo "relinkeado $relink"
 fi 
-cd .bash_completion.d 
-echo "cd .bash_completion.d"
-echo "Descargando git-completion"
-echo "wget -c http://repo.or.cz/w/git.git/blob_plain/HEAD:/contrib/completion/git-completion.bash"
-wget -c http://repo.or.cz/w/git.git/blob_plain/HEAD:/contrib/completion/git-completion.bash
+if [ ! -e .bash_completion.d/git-completion.bash ]
+then 
+	cd .bash_completion.d 
+	echo "cd .bash_completion.d"
+	echo "Descargando git-completion"
+	echo "wget -c http://repo.or.cz/w/git.git/blob_plain/HEAD:/contrib/completion/git-completion.bash"
+	wget -c http://repo.or.cz/w/git.git/blob_plain/HEAD:/contrib/completion/git-completion.bash
+fi
 cd $dirLocal 
 echo "cd $dirLocal"
 # }}}
