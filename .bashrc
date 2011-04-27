@@ -114,6 +114,7 @@ alias screen='$HOME/opt/bin/screen'
 alias grep='grep --color'
 PS1='\u@\h \w\$ '
 TERM="xterm"
+EDITOR=vim
 
 PATH=$PATH:$HOME/opt/bin
 PATH=$PATH:$HOME/bin
@@ -124,3 +125,4 @@ alias xtermHugeWhite='xtermHuge -bg white -fg black'
 alias xtermWhite='xterm -bg white -fg black'
 export VIMHOME=$HOME/.vim
 export RC=$HOME/src/rc
+[[ $- == *i* ]] && . /Users/pablo/src/git-prompt/git-prompt.sh
