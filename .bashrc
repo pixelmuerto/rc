@@ -1,4 +1,3 @@
-
 # Get the aliases and functions
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
@@ -117,7 +116,7 @@ TERM="xterm"
 EDITOR=vim
 
 PATH=$PATH:$HOME/opt/bin
-PATH=$PATH:$HOME/bin
+#PATH=$PATH:$HOME/bin
 export WIKI=$HOME/src/pixelmuerto.github.com/wiki
 export PATH
 alias xtermHuge='xterm -fn *-*-*-*-*-*-20-*'

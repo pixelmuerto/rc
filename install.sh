@@ -15,9 +15,9 @@ do
 	else
 		if [ -e $a ]
 		then
-		ln -s $dirLocal/$a $HOME
-		echo "ln -s $a $HOME"
-		echo "Linkeado el directorio $a al $HOME"
+		ln -s -v $dirLocal/$a $HOME
+		#echo "ln -s $a $HOME"
+		#echo "Linkeado el directorio $a al $HOME"
 		fi 
 	fi
 done
@@ -73,16 +73,14 @@ do
 				pContentToMove=$vimDir/$pContent
 				if [ ! -e $pContentToMove ] 
 				then 
-					ln -s $PWD/$pContent $vimDir
-					relink=$(ls -l $pContentToMove | awk '{print $(NF-2),$(NF-1),$NF}')
-					echo "relinkeado $relink"
+					ln -v -s $PWD/$pContent $vimDir
+					
 				else
 					if [ -h $pContentToMove ] 
 					then 
 						unlink $pContentToMove 	
-						ln -s $PWD/$pContent $pContentToMove 
-						relink=$(ls -l $pContentToMove | awk '{print $(NF-2),$(NF-1),$NF}')
-						echo "relinkeado $relink"
+						ln -s -v $PWD/$pContent $pContentToMove 
+						
 					else
 						for c in $(ls $pContent)
 						do
@@ -91,16 +89,14 @@ do
 								if [[ -h $pContentToMove/$c  ]]
 								then 
 									unlink $pContentToMove/$c
-									ln -s $PWD/$pContent/$c $pContentToMove/$c 
-									relink=$(ls -l $pContentToMove/$c | awk '{print $(NF-2),$(NF-1),$NF}')
-									echo "relinkeado $relink"
+									ln -s -v $PWD/$pContent/$c $pContentToMove/$c 
+									
 								else
 									echo "$pContentToMove/$c ya existe!"
 								fi 
 							else
-								ln -s $PWD/$pContent/$c $pContentToMove/$c 
-								relink=$(ls -l $pContentToMove/$c | awk '{print $(NF-2),$(NF-1),$NF}')
-								echo "relinkeado $relink"
+								ln -s -v $PWD/$pContent/$c $pContentToMove/$c 
+								
 							fi
 						done
 					fi
@@ -131,9 +127,8 @@ then
 fi 
 if [ ! -d $HOME/.bash_completion.d ]
 then 
-	ln -s $dirLocal/.bash_completion.d $HOME
-	relink=$(ls -l $HOME/.bash_completion.d | awk '{print $(NF-2),$(NF-1),$NF}')
-	echo "relinkeado $relink"
+	ln -s -v $dirLocal/.bash_completion.d $HOME
+	
 fi 
 if [ ! -e .bash_completion.d/git-completion.bash ]
 then 
